@@ -93,11 +93,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function saveState() {
-        localStorage.setItem(storageKey, JSON.stringify(readState()));
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(readState()));
+        } catch (error) {
+            console.warn("No se pudo guardar el estado local", error);
+        }
     }
 
     function loadState() {
-        const rawState = localStorage.getItem(storageKey);
+        let rawState = null;
+
+        try {
+            rawState = localStorage.getItem(storageKey);
+        } catch (error) {
+            console.warn("No se pudo leer el estado local", error);
+        }
+
         if (!rawState) {
             elements.textInput.value = sampleText;
             return false;
@@ -518,17 +529,24 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 elements.copyText.textContent = "Copiar texto adaptado";
             }, 1200);
+        }).catch(() => {
+            elements.copyText.textContent = "No se pudo copiar";
+            setTimeout(() => {
+                elements.copyText.textContent = "Copiar texto adaptado";
+            }, 1400);
         });
     }
 
     function printSheet() {
         const options = getOptions();
         const cards = extractMemoryCards(elements.textInput.value, options.memoryCount);
-        const printWindow = window.open("", "_blank", "width=1100,height=900");
+        const printWindow = window.open("", "_blank", "noopener,noreferrer,width=1100,height=900");
 
         if (!printWindow) {
             return;
         }
+
+        printWindow.opener = null;
 
         const memoryMarkup = cards.map((card) => `
             <article class="memory-card">
