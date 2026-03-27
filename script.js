@@ -184,36 +184,53 @@ document.addEventListener("DOMContentLoaded", () => {
         return chunks.filter(Boolean);
     }
 
+    function decorateLetters(fragment, options, sentenceState) {
+        let sentenceStartUsed = false;
+
+        return [...fragment].map((char) => {
+            let rendered = escapeHtml(char);
+
+            if (
+                options.toggleSentenceStart &&
+                sentenceState.isNewSentence &&
+                !sentenceStartUsed &&
+                /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(char)
+            ) {
+                rendered = `<span class="sentence-start">${rendered}</span>`;
+                sentenceState.isNewSentence = false;
+                sentenceStartUsed = true;
+            }
+
+            if (options.toggleGraphemes && /[bdpqBDPQ]/.test(char)) {
+                rendered = `<span class="grapheme-highlight" style="--grapheme-color:${options.graphemeColor};">${rendered}</span>`;
+            }
+
+            return rendered;
+        }).join("");
+    }
+
     function stylizeWord(word, options, sentenceState) {
         const cleanWord = word.replace(/[^A-Za-zÁÉÍÓÚáéíóúÜüÑñ]/g, "");
+        if (!cleanWord) {
+            return escapeHtml(word);
+        }
+
         const chunks = options.toggleSyllables ? splitWordForSyllables(cleanWord) : [cleanWord];
+        const rebuilt = chunks
+            .map((chunk) => {
+                const decoratedChunk = decorateLetters(chunk, options, sentenceState);
+                return options.toggleSyllables && chunks.length > 1
+                    ? `<span class="syllable">${decoratedChunk}</span>`
+                    : decoratedChunk;
+            })
+            .join(options.toggleSyllables && chunks.length > 1 ? '<span class="syllable-break">·</span>' : "");
 
-        let rebuilt = cleanWord;
-        if (cleanWord && chunks.length > 1) {
-            rebuilt = chunks
-                .map((chunk) => `<span class="syllable">${escapeHtml(chunk)}</span>`)
-                .join('<span class="syllable-break">·</span>');
-        } else {
-            rebuilt = escapeHtml(cleanWord);
-        }
-
-        if (options.toggleGraphemes) {
-            rebuilt = rebuilt.replace(/[bdpqBDPQ]/g, (char) => {
-                return `<span class="grapheme-highlight" style="--grapheme-color:${options.graphemeColor};">${char}</span>`;
-            });
-        }
-
-        if (options.toggleSentenceStart && sentenceState.isNewSentence && /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(cleanWord)) {
-            rebuilt = rebuilt.replace(/([A-Za-zÁÉÍÓÚÜÑáéíóúüñ])/, '<span class="sentence-start">$1</span>');
-            sentenceState.isNewSentence = false;
-        }
-
-        if (options.toggleAccents && /[áéíóúÁÉÍÓÚ]/.test(cleanWord)) {
-            rebuilt += '<span class="accent-clue" aria-hidden="true">♪</span>';
-        }
+        const accentMark = options.toggleAccents && /[áéíóúÁÉÍÓÚ]/.test(cleanWord)
+            ? '<span class="accent-clue" aria-hidden="true">♪</span>'
+            : "";
 
         const punctuation = escapeHtml(word.slice(cleanWord.length));
-        return rebuilt + punctuation;
+        return rebuilt + accentMark + punctuation;
     }
 
     function formatLine(line, options, lineIndex, sentenceState) {
