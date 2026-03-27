@@ -3,124 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adapro Plus - Procesador de Texto Adaptado</title>
-    <link rel="stylesheet" href="style.css"> <!-- Referencia al nuevo style.css -->
+    <title>LectoViva V2 | Lectura y escritura visual para dislexia</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <img src="https://adapro.iter.es/wp-content/uploads/2020/07/logo-adapro-web.png" alt="Adapro Logo" class="logo">
-            <h1>Adapro Plus: Procesador de Texto Adaptado</h1>
-            <p>Una herramienta gratuita y mejorada para personas con dificultades de aprendizaje.</p>
+    <header class="site-header">
+        <div class="container header-grid">
+            <div class="brand-block">
+                <p class="eyebrow">Version 2 independiente</p>
+                <h1>LectoViva V2</h1>
+                <p class="lead">Una herramienta visual de lectura, escritura, memorizacion e impresion adaptada para dislexia.</p>
+            </div>
+            <div class="header-card">
+                <p class="card-kicker">En que mejora</p>
+                <ul class="feature-list compact-list">
+                    <li>Perfiles de lectura listos para usar</li>
+                    <li>Guia de linea y mascara de foco</li>
+                    <li>Resaltado configurable de grafemas y silabas visuales</li>
+                    <li>Tarjetas memoristicas automaticas</li>
+                    <li>Modo impresion para aula, terapia o casa</li>
+                </ul>
+            </div>
         </div>
     </header>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <h2>Facilitando la Lectura y Escritura para Todos</h2>
-            <p>Adapro Plus es un procesador de texto diseñado para superar barreras, ofreciendo una interfaz intuitiva y herramientas visuales que transforman la experiencia de aprendizaje.</p>
-            <a href="#editor-section" class="btn-primary">Prueba Nuestro Editor Adaptado</a>
-        </div>
-    </section>
-
-    <section id="what-is-adapro" class="info-section">
-        <div class="container">
-            <h3>¿Qué es Adapro Plus?</h3>
-            <p>Adapro Plus es una evolución del procesador de texto libre y gratuito Adapro, creado para apoyar a personas con dislexia y otras dificultades de aprendizaje, así como a aquellos con diversidad funcional como el autismo. Su objetivo es hacer la lectura y escritura más accesible y comprensible, incorporando nuevas funcionalidades.</p>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>Interfaz Adaptada y Configurable</h4>
-                    <p>Diseño transparente y configurable que se ajusta a las necesidades individuales del usuario, ahora con más opciones de personalización.</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <p class="section-tag">Lectura adaptativa</p>
+                    <h2>Supera al original con mas control visual, mas apoyo cognitivo y mejor salida impresa.</h2>
+                    <p class="hero-copy">LectoViva V2 toma el enfoque visual y accesible de Adapro y lo lleva a un entorno web mas claro: configuracion profunda, lectura por lineas, pistas para la memoria, vista previa en vivo y cuadernos imprimibles.</p>
+                    <div class="hero-actions">
+                        <a href="#workspace" class="primary-btn">Probar ahora</a>
+                        <button type="button" id="load-sample" class="ghost-btn">Cargar ejemplo</button>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <h4>Paradigma de Aprendizaje Visual Mejorado</h4>
-                    <p>Herramientas que facilitan la comprensión a través de elementos visuales avanzados, como guías de lectura por línea.</p>
-                </div>
-                <div class="info-item">
-                    <h4>Gestión Amigable de Documentos</h4>
-                    <p>Simplifica la creación y organización de tus textos, con un enfoque en la facilidad de uso.</p>
-                </div>
-                <div class="info-item">
-                    <h4>Multiplataforma y Accesible</h4>
-                    <p>Compatible con diversos sistemas operativos para que puedas usarlo donde lo necesites, con un enfoque en la accesibilidad universal.</p>
+                <div class="stat-panel">
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-words">0</span>
+                        <span class="stat-label">palabras</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-lines">0</span>
+                        <span class="stat-label">lineas</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="stat-memory">0</span>
+                        <span class="stat-label">tarjetas de apoyo</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="our-features" class="features-section">
-        <div class="container">
-            <h3>Nuestras Herramientas de Mejora de Lectura</h3>
-            <p>Adapro Plus integra características avanzadas para una lectura aún más personalizada y fluida:</p>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h4>Guía de Líneas de Colores</h4>
-                    <p>Líneas de color distintivas debajo de cada renglón que cambian progresivamente para guiar tu vista al siguiente, mejorando el seguimiento visual.</p>
+        <section class="benefits">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-tag">Ventajas clave</p>
+                    <h3>Disenado para reducir esfuerzo visual y reforzar la memoria.</h3>
                 </div>
-                <div class="feature-item">
-                    <h4>Puntuación Gráfica y Pausas</h4>
-                    <p>Comas, puntos y otros signos de puntuación son más grandes y con mayor espacio para mejorar el ritmo del discurso y la comprensión.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Musicalidad y Acentuación</h4>
-                    <p>Símbolos visuales (♫) indican palabras con acento, ayudando a la entonación y fluidez de la lectura, clave para la comprensión oral.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Resaltado de Grafemas Difíciles</h4>
-                    <p>Opcionalmente, las letras 'b', 'd', 'p', 'q' se resaltan en negrita y color para evitar confusiones comunes y mejorar el reconocimiento de letras.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Inicio de Frase Claro</h4>
-                    <p>La primera letra de cada nueva oración se destaca, señalando claramente el comienzo de una nueva idea y facilitando la segmentación del texto.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Tipografía OpenDyslexic</h4>
-                    <p>Utiliza la fuente OpenDyslexic para una mayor claridad y reducción de la confusión de letras, optimizada para disléxicos.</p>
+                <div class="benefit-grid">
+                    <article class="benefit-card">
+                        <h4>Lectura guiada</h4>
+                        <p>Alterna fondos, aumenta la separacion entre palabras, usa una guia de linea y resalta la linea activa para sostener la atencion.</p>
+                    </article>
+                    <article class="benefit-card">
+                        <h4>Confusiones frecuentes</h4>
+                        <p>Marca b, d, p y q con color, peso y contorno para reducir errores visuales frecuentes.</p>
+                    </article>
+                    <article class="benefit-card">
+                        <h4>Ritmo y prosodia</h4>
+                        <p>Agrandado de puntuacion, pausa visual y senales de acentuacion para leer con mejor ritmo y respiracion.</p>
+                    </article>
+                    <article class="benefit-card">
+                        <h4>Apoyo memoristico</h4>
+                        <p>Genera tarjetas automaticas con palabras clave, letras dificiles y pistas breves para estudiar o repasar.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="editor-section" class="editor-section">
-        <div class="container">
-            <h2>Experimenta la Lectura Adaptada con Adapro Plus</h2>
-            <p>Pega tu texto y personaliza tu experiencia de lectura con nuestras herramientas avanzadas.</p>
-            <div class="editor-wrapper">
-                <div class="controls">
-                    <label for="font-select">Fuente:</label>
-                    <select id="font-select">
-                        <option value="OpenDyslexic">OpenDyslexic</option>
-                        <option value="Arial">Arial</option>
-                        <option value="Verdana">Verdana</option>
-                        <option value="Comic Sans MS">Comic Sans</option>
-                    </select>
-
-                    <label for="font-size">Tamaño:</label>
-                    <input type="number" id="font-size" value="20" min="10" max="100">
-
-                    <label for="highlight-color">Color de Resaltado:</label>
-                    <input type="color" id="highlight-color" value="#D0021B">
-
-                    <label for="highlight-toggle">Resaltar (b, d, p, q):</label>
-                    <input type="checkbox" id="highlight-toggle" checked>
-                    
-                    <button id="print-button">Imprimir</button>
+        <section id="workspace" class="workspace-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-tag">Editor V2</p>
+                    <h3>Configura, visualiza, estudia e imprime desde un mismo espacio.</h3>
                 </div>
-                <div class="editor-container">
-                    <textarea id="text-input" placeholder="Pega tu texto aquí..."></textarea>
-                    <div id="text-output" class="output-area"></div>
+
+                <div class="preset-row">
+                    <button type="button" class="preset-btn active" data-preset="focus">Foco lector</button>
+                    <button type="button" class="preset-btn" data-preset="study">Estudio</button>
+                    <button type="button" class="preset-btn" data-preset="calm">Calma visual</button>
+                    <button type="button" class="preset-btn" data-preset="print">Impresion</button>
+                </div>
+
+                <div class="workspace-grid">
+                    <aside class="control-panel">
+                        <div class="panel-block">
+                            <h4>Texto</h4>
+                            <label for="font-family">Fuente</label>
+                            <select id="font-family">
+                                <option value="'Lexend', sans-serif">Lexend</option>
+                                <option value="'Atkinson Hyperlegible Next', sans-serif">Atkinson Hyperlegible</option>
+                                <option value="'OpenDyslexic', sans-serif">OpenDyslexic</option>
+                                <option value="Verdana, sans-serif">Verdana</option>
+                            </select>
+
+                            <label for="font-size">Tamano</label>
+                            <input id="font-size" type="range" min="18" max="42" value="28">
+                            <output id="font-size-value">28 px</output>
+
+                            <label for="line-height">Altura de linea</label>
+                            <input id="line-height" type="range" min="1.5" max="2.6" value="2" step="0.1">
+                            <output id="line-height-value">2.0</output>
+
+                            <label for="letter-spacing">Espacio entre letras</label>
+                            <input id="letter-spacing" type="range" min="0" max="0.18" value="0.05" step="0.01">
+                            <output id="letter-spacing-value">0.05 em</output>
+
+                            <label for="word-spacing">Espacio entre palabras</label>
+                            <input id="word-spacing" type="range" min="0" max="1.2" value="0.22" step="0.02">
+                            <output id="word-spacing-value">0.22 em</output>
+                        </div>
+
+                        <div class="panel-block">
+                            <h4>Ayudas visuales</h4>
+                            <label class="toggle-row"><input id="toggle-guides" type="checkbox" checked> Guias por linea</label>
+                            <label class="toggle-row"><input id="toggle-active-line" type="checkbox" checked> Resaltar linea activa</label>
+                            <label class="toggle-row"><input id="toggle-zebra" type="checkbox" checked> Alternar fondos</label>
+                            <label class="toggle-row"><input id="toggle-focus-mask" type="checkbox"> Mascara de foco</label>
+                            <label class="toggle-row"><input id="toggle-punctuation" type="checkbox" checked> Puntuacion ampliada</label>
+                            <label class="toggle-row"><input id="toggle-accents" type="checkbox" checked> Senal de acento</label>
+                            <label class="toggle-row"><input id="toggle-sentence-start" type="checkbox" checked> Inicio de frase destacado</label>
+                        </div>
+
+                        <div class="panel-block">
+                            <h4>Confusiones y color</h4>
+                            <label class="toggle-row"><input id="toggle-graphemes" type="checkbox" checked> Resaltar b d p q</label>
+                            <label for="grapheme-color">Color grafemas</label>
+                            <input id="grapheme-color" type="color" value="#c43d2f">
+
+                            <label for="theme-select">Tema visual</label>
+                            <select id="theme-select">
+                                <option value="sand">Arena suave</option>
+                                <option value="sky">Azul limpio</option>
+                                <option value="forest">Verde sereno</option>
+                                <option value="night">Noche suave</option>
+                            </select>
+                        </div>
+
+                        <div class="panel-block">
+                            <h4>Memoria y estudio</h4>
+                            <label class="toggle-row"><input id="toggle-syllables" type="checkbox" checked> Marcas silabicas visuales</label>
+                            <label class="toggle-row"><input id="toggle-memory-cards" type="checkbox" checked> Tarjetas de memoria</label>
+                            <label for="memory-count">Numero de tarjetas</label>
+                            <input id="memory-count" type="range" min="4" max="12" value="8">
+                            <output id="memory-count-value">8</output>
+                        </div>
+
+                        <div class="panel-block action-block">
+                            <button type="button" id="copy-text" class="secondary-btn">Copiar texto adaptado</button>
+                            <button type="button" id="save-local" class="secondary-btn">Guardar en este navegador</button>
+                            <button type="button" id="print-sheet" class="primary-btn">Imprimir ficha</button>
+                        </div>
+                    </aside>
+
+                    <div class="editor-stack">
+                        <section class="editor-card">
+                            <div class="card-header">
+                                <h4>Entrada</h4>
+                                <p>Pega, escribe o carga un texto para transformarlo.</p>
+                            </div>
+                            <textarea id="text-input" spellcheck="false" placeholder="Escribe o pega aqui tu texto..."></textarea>
+                        </section>
+
+                        <section class="preview-card">
+                            <div class="card-header">
+                                <h4>Vista adaptada</h4>
+                                <p>Haz clic en una linea para fijarla como foco.</p>
+                            </div>
+                            <div id="text-output" class="output-area"></div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="memory-grid-wrapper">
+                    <div class="memory-header">
+                        <div>
+                            <p class="section-tag">Refuerzo memoristico</p>
+                            <h3>Tarjetas de apoyo para repasar despues de leer.</h3>
+                        </div>
+                        <p class="memory-helper">Se generan a partir del propio texto, detectando palabras largas, acentuadas o con grafemas conflictivos.</p>
+                    </div>
+                    <div id="memory-grid" class="memory-grid"></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Adapro Plus. Todos los derechos reservados.</p>
-            <p>Inspirado en Adapro, desarrollado para la comunidad.</p>
+        <section class="print-section">
+            <div class="container print-grid">
+                <div>
+                    <p class="section-tag">Impresion inteligente</p>
+                    <h3>Convierte el texto en una ficha clara para aula, terapia o casa.</h3>
+                </div>
+                <ul class="feature-list">
+                    <li>Vista limpia con tipografia adaptada y lineas amplias</li>
+                    <li>Tarjetas memoristicas incluidas en la impresion</li>
+                    <li>Indicadores visuales que ayudan a seguir y recordar</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h4>LectoViva V2</h4>
+                <p>Herramienta independiente inspirada en buenas practicas de accesibilidad lectora, redisenada para ofrecer una experiencia web mas potente y mas util para dislexia.</p>
+            </div>
+            <div>
+                <p class="footer-note">Hecha para mejorar lectura, comprension, estudio e impresion sin depender del software original.</p>
+            </div>
         </div>
     </footer>
 
