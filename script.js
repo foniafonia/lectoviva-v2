@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tokens = line.match(/[^\s]+|\s+/g) || [];
         const html = tokens.map((token) => {
             if (/^\s+$/.test(token)) {
-                return token.replace(/ /g, "&nbsp;");
+                return " ";
             }
 
             const leading = token.match(/^[¡¿"(\[]+/);
