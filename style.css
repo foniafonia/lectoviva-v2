@@ -379,21 +379,33 @@ a {
 }
 
 .output-area {
+    width: 100%;
+    max-width: 100%;
     border-radius: 20px;
     border: 1px solid var(--line);
     background: var(--panel-strong);
     padding: 20px;
     min-height: 340px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     transition: background-color 0.2s ease;
 }
 
 .output-line {
     position: relative;
+    width: 100%;
+    max-width: 100%;
     padding: 12px 14px 18px;
     border-radius: 16px;
     background:
         linear-gradient(to bottom, transparent calc(100% - 5px), var(--guide-color) calc(100% - 5px));
     margin-bottom: 10px;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
     transition: transform 0.16s ease, background-color 0.16s ease, opacity 0.16s ease;
 }
 
@@ -443,6 +455,9 @@ a {
 
 .syllable {
     background: linear-gradient(180deg, transparent 55%, rgba(255, 199, 110, 0.2) 55%);
+    display: inline;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .syllable-break {
@@ -564,6 +579,7 @@ a {
 
     .output-area {
         padding: 14px;
+        font-size: clamp(1rem, 4vw, 1.18rem);
     }
 }
 

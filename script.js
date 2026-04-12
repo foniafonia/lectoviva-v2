@@ -406,11 +406,18 @@ document.addEventListener("DOMContentLoaded", () => {
             activeLineIndex = Math.max(lines.length - 1, 0);
         }
 
+        const outputWidth = elements.textOutput.clientWidth || 0;
+        const compactOutput = outputWidth > 0 && outputWidth < 680;
+        const fontSize = compactOutput ? Math.min(options.fontSize, 30) : options.fontSize;
+        const letterSpacing = compactOutput ? Math.min(options.letterSpacing, 0.08) : options.letterSpacing;
+        const wordSpacing = compactOutput ? Math.min(options.wordSpacing, 0.26) : options.wordSpacing;
+
         elements.textOutput.style.fontFamily = options.fontFamily;
-        elements.textOutput.style.fontSize = `${options.fontSize}px`;
+        elements.textOutput.style.fontSize = `${fontSize}px`;
         elements.textOutput.style.lineHeight = String(options.lineHeight);
-        elements.textOutput.style.letterSpacing = `${options.letterSpacing}em`;
-        elements.textOutput.style.wordSpacing = `${options.wordSpacing}em`;
+        elements.textOutput.style.letterSpacing = `${letterSpacing}em`;
+        elements.textOutput.style.wordSpacing = `${wordSpacing}em`;
+        elements.textOutput.dataset.compact = compactOutput ? "true" : "false";
 
         elements.textOutput.innerHTML = lines
             .map((line, index) => formatLine(line, options, index, sentenceState))
@@ -660,6 +667,8 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.presetButtons.forEach((button) => {
             button.addEventListener("click", () => applyPreset(button.dataset.preset));
         });
+
+        window.addEventListener("resize", updatePreview);
     }
 
     const restoredState = loadState();
