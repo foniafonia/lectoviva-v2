@@ -1,46 +1,30 @@
-# LectoViva V2
+# LectoViva v2
 
-Herramienta visual de lectura, escritura, memorizacion e impresion adaptada para dislexia.
+Herramienta adaptativa de lectura y escritura visual para dislexia.
 
-## Demo publica
+## 🎯 Características
 
-- Demo online: [https://foniafonia.github.io/lectoviva-v2/](https://foniafonia.github.io/lectoviva-v2/)
-- Repositorio: [https://github.com/foniafonia/lectoviva-v2](https://github.com/foniafonia/lectoviva-v2)
+- **Tipografía dislexia-friendly**: fuentes especializadas
+- **Espaciado y tracking adaptativo**
+- **Paletas de color personalizables**
+- **Modo lectura con guía visual**
+- **Ejercicios de escritura estructurados**
 
-## Que es
+## 📱 Stack
 
-LectoViva V2 convierte un texto en una experiencia de lectura mas clara, guiada y configurable. Esta pensada para reducir carga visual, reforzar la memoria y facilitar el trabajo en aula, terapia o casa.
+JavaScript + HTML5 + CSS3
 
-## Que incluye
+## 🧠 Basado en
 
-- Perfiles de lectura listos para usar
-- Guia de linea y mascara de foco
-- Resaltado configurable de grafemas y silabas visuales
-- Tarjetas de memoria generadas a partir del propio texto
-- Vista previa en vivo para adaptar el material antes de imprimir
-- Modo impresion para fichas y cuadernos de apoyo
+Principios de Onda Educa + Método Verbotonal
 
-## Casos de uso
+## 📚 Aplicaciones
 
-- Intervencion en dislexia y lectoescritura
-- Apoyo visual en logopedia
-- Adaptacion de materiales para aula
-- Refuerzo en casa con textos ajustados
+- Dislexia evolutiva
+- Dificultades de lectura
+- Intervención logopédica
+- Apoyo educativo
 
-## Uso rapido
+---
 
-1. Abre la demo publica.
-2. Pega o escribe un texto.
-3. Ajusta fuente, tamano, interlineado y ayudas visuales.
-4. Activa el refuerzo de grafemas, silabas y tarjetas de memoria si lo necesitas.
-5. Imprime o guarda el material adaptado.
-
-## Enlace para compartir
-
-Si quieres compartir LectoViva V2 con tu comunidad, usa este enlace:
-
-`https://foniafonia.github.io/lectoviva-v2/`
-
-## Estado
-
-Proyecto activo en evolucion. La version publicada se ira endureciendo y mejorando a partir del uso real y el feedback de la comunidad.
+**Autor**: José Aserraf — Logopeda
